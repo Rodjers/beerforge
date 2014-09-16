@@ -1,18 +1,19 @@
 'use strict';
 
-describe('Service: recipe', function () {
+describe('Service: recipeFactory', function () {
 
   // load the service's module
   beforeEach(module('beerforgeApp'));
+    beforeEach(module('socketMock'));
 
   // instantiate service
-  var recipe;
-  beforeEach(inject(function (_recipe_) {
-    recipe = _recipe_;
+  var recipeFactory;
+  beforeEach(inject(function (_recipeFactory_) {
+      recipeFactory = _recipeFactory_;
   }));
 
   it('should do something', function () {
-    expect(!!recipe).toBe(true);
+    expect(!!recipeFactory).toBe(true);
   });
 
 });
