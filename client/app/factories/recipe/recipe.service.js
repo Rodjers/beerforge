@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('beerforgeApp')
-  .factory('recipe', function ($http, socket) {
+  .factory('recipeFactory', function ($http, socket) {
     // Service logic
     // ...
 
@@ -13,14 +13,20 @@ angular.module('beerforgeApp')
                 $http.get('/api/recipes').success(function(recipes) {
                     scope.recipes = recipes;
                     socket.syncUpdates('recipe', scope.recipes);
+
+                    scope.$on('$destroy', function () {
+                        socket.unsyncUpdates('recipe');
+                    });
                 });
-            }
-            /*,
+            },
             addRecipe: function(recipe) {
-                recipes.$add(recipe);
+                $http.post('/api/recipes', recipe);
             },
             getRecipe: function(id){
-                return $firebase(new Firebase('https://beerforge.firebaseio.com/recipes/' + id));
-            }*/
+                $http.get('/api/recipes/' + id);
+            },
+            deleteRecipe: function(id){
+                $http.delete('/api/recipes/' + id);
+            }
         };
   });
