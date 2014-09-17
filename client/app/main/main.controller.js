@@ -5,6 +5,10 @@ angular.module('beerforgeApp')
 
         $scope.awesomeThings = ['HTML5 Boilerplate', 'AngularJS', 'Karma', 'Express'];
 
+        $scope.filter = {
+            showNewRecipe: false
+        }
+
         recipeFactory.getRecipeBinding($scope);
 
     $scope.addRecipe = function(recipe) {
