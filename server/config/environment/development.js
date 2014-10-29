@@ -3,10 +3,10 @@
 // Development specific configuration
 // ==================================
 module.exports = {
-  // MongoDB connection options
-  mongo: {
-    uri: 'mongodb://localhost/beerforge-dev'
-  },
+    // MongoDB connection options
+    mongo: {
+        uri: 'mongodb://localhost/beerforge-dev'
+    },
 
-  seedDB: true
+    seedDB: true
 };
